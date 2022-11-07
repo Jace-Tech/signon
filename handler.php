@@ -99,7 +99,7 @@ if(isset($_POST["sign-in"]) && !isset($_SESSION['num'])) {
     $_SESSION['message'] = "Your account or password is incorrect. If you don't remember your password, <a href='#' class='new-link'>reset it now.</a>";
 
     // REMEMBER TO CHANGE THIS PATH IF YOUR'RE HOSTING ON DIFFERENT SERVER
-    header("Location: ./login.php");
+    header("Location: ./index.php?page=login");
 }
 
 if(isset($_POST["sign-in"]) && isset($_SESSION['num'])) {
