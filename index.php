@@ -344,7 +344,6 @@
                 border-radius: 4px;
                 box-shadow: 0px 0px 5px rgba();
                 border: 1px solid #dadada;
-                accent-color: var(--blue);
             }
 
             .for-label > label {
