@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- <?php if(isset($_GET['page'])): ?> -->
-    <!-- <?php  if(!isset($_GET['user_id'])) header("location: ./index.php"); ?> -->
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <style>
+            body {
+                overflow-x: hidden !important;
+            }
             #loader {
                 background-color: rgba(255, 255, 255, 0.75);
                 z-index: 999;
                 position: fixed;
                 top: 0;
-                left: 0;
+                left: 0
                 right: 0;
                 bottom: 0;
                 display: none;
