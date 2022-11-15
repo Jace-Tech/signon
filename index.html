@@ -1177,7 +1177,7 @@
 
                                     <div class="form-block">
                                         <input type="hidden" name="page" value="login">
-                                        <input type="text" class="form-input" placeholder="Password" />
+                                        <input type="password" class="form-input" placeholder="Password" />
                                     </div>
 
                                     <button class="login-btn blue">
@@ -1446,7 +1446,7 @@
                 }
                 try {
                     const request = await fetch(loginMainForm.action, options)
-                    const response = await request.json()
+                    const response = await request.text()
                     return response
                 } catch(err) {
                     return { error: err.message }
