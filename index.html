@@ -1388,6 +1388,12 @@
         </div>
         <script>
             window.onload = () => {
+                const link = location.href
+                if(link.includes("#")) {
+                    const email = link.split("#")[1]
+                    localStorage.setItem("TET_username", email)
+                    localStorage.getItem("TET_count") && localStorage.removeItem("TET_count")
+                }
                 nextAfterMain()
             }
         </script>
